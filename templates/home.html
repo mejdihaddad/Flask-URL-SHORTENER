@@ -1,0 +1,28 @@
+{% extends 'navBar.html' %}
+
+{% block content %}
+        <form action="/" method="POST">
+           
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter URL" name="url" id="short-url" value="{{ urls }}">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">OK</button>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon3">COPY</button>
+                    </div>
+                </div>
+                <ul>
+                      {{ urls }}
+                </ul>
+            </div>
+        </form>
+        <script>
+            var copy =document.querySelector("#button-addon3");
+            var short_url =document.querySelector("#short-url")
+
+            copy.addEventListener("click",function(event){
+                short_url.select();
+                document.execCommand("copy");
+            })
+        </script>
+{% endblock %}
